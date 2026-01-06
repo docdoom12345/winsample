@@ -7,16 +7,17 @@
   tasks:
     - win_ping:
       become: false
-
+      
+    - register: result
+      win_stat:
+        path: "{{ file_path }}"
+      
     - name: Create file
       win_file:
         path: "{{ file_path }}"
         state: touch
-
-    - when: 
-        - file_path is defined
-      win_stat:
-        path: "{{ file_path }}"
+      when: not result.exists
+    
       
 
     - setup:
