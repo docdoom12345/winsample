@@ -6,6 +6,7 @@
   become_user: admin
   tasks:
     - win_ping:
+      become: false
 
     - name: Create file
       win_file:
@@ -16,3 +17,4 @@
         path: C:\foo.conf
 
     - setup:
+      become: false
