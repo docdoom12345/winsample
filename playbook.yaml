@@ -13,10 +13,11 @@
         path: "{{ file_path }}"
         state: touch
 
-    - win_stat:
-        path: "{{ file_path }}"
-      when: 
+    - when: 
         - file_path1 is defined
+      win_stat:
+        path: "{{ file_path }}"
+      
 
     - setup:
       become: false
