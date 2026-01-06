@@ -1,0 +1,15 @@
+---
+- name: Demo playbook
+  hosts: windows
+  tasks:
+    - win_ping:
+
+    - name: Create file
+      win_file:
+        path: C:\foo.conf
+        state: touch
+
+    - win_stat:
+        path: C:\foo.conf
+
+    - setup:
