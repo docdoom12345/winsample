@@ -7,7 +7,7 @@
   tasks:
     - win_ping:
       become: false
-      
+
     - register: result
       win_stat:
         path: "{{ file_path }}"
@@ -16,7 +16,7 @@
       win_file:
         path: "{{ file_path }}"
         state: touch
-      when: not result.exists
+      when: not result.stat.exists
     
       
 
