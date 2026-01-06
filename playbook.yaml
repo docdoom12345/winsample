@@ -14,7 +14,7 @@
         state: touch
 
     - when: 
-        - file_path1 is defined
+        - file_path is defined
       win_stat:
         path: "{{ file_path }}"
       
