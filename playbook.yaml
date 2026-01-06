@@ -1,6 +1,9 @@
 ---
 - name: Demo playbook
   hosts: windows
+  become: true
+  become_method: runas
+  become_user: admin
   tasks:
     - win_ping:
 
