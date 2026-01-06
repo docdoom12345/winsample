@@ -10,11 +10,11 @@
 
     - name: Create file
       win_file:
-        path: C:\foo.conf
+        path: "{{ file_path }}"
         state: touch
 
     - win_stat:
-        path: C:\foo.conf
+        path: "{{ file_path }}"
 
     - setup:
       become: false
