@@ -1,0 +1,10 @@
+- hosts: windows
+  tasks:
+    - name: Ensure users are created
+      loop: "{{ local_users }}"
+      ansible.windows.win_user:
+        name: "{{ item['name'] }}"
+        password: "{{ item['password'] }}"
+        state: present
+        groups:
+          - "{{ item['groups'] }}"
