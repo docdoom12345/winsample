@@ -3,7 +3,6 @@
   tasks:
    - name: Attempt and graceful roll back demo
      block:
-
        - name: Copy file
          ansible.windows.win_template:
            src: file.conf
