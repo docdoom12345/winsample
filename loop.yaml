@@ -12,5 +12,4 @@
         name: "{{ item['name'] }}"
         password: "{{ item['password'] }}"
         state: present
-        groups:
-          - "{{ item['groups'] }}"
+        groups: "{{ item['groups'] }}"
