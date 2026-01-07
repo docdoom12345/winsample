@@ -10,11 +10,11 @@
 
     - register: result
       win_stat:
-        path: "{{ file_path }}"
+        path: "{{ file_path | mandatory }}"
       
     - name: Create file
       win_file:
-        path: "{{ file_path }}"
+        path: "{{ file_path | mandatory }}"
         state: touch
       when: not result['stat']['exists']
     
