@@ -1,0 +1,26 @@
+---
+- hosts: windows
+  tasks:
+   - name: Attempt and graceful roll back demo
+     block:
+
+       - name: Copy file
+         ansible.windows.win_template:
+           src: file.conf
+           dest: c:\Temp3\
+           backup: true
+     rescue:
+       - name: Create folder
+         ansible.windows.win_file:
+           path: c:\Temp3\
+           state: directory
+
+       - name: Copy file
+         ansible.windows.win_template:
+           src: file.conf.j2
+           dest: c:\Temp3\
+           backup: true
+     always:
+       - name: verify file
+         win_stat:
+           path: c:\Temp3\file.conf.j2
