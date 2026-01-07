@@ -1,7 +1,7 @@
 file_path: 'C:\foo.conf'
 local_users:
-    - { name: 'bob', groups: ['Users',"Dev"], password: 'B0bP4ssw0rd' }
-    - { name: 'bob2', groups: ['Users',"Dev"], password: 'B0bP4ssw0rd' }
+    - { name: 'bob', groups: ['Userse',"Deve"], password: 'B0bP4ssw0rd' }
+    - { name: 'bob2', groups: ['Userse',"Deve"], password: 'B0bP4ssw0rd' }
 local_groups:
-    - Users
-    - Dev
+    - Userse
+    - Deve

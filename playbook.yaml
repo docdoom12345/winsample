@@ -1,6 +1,7 @@
 ---
 - name: Demo playbook
   hosts: windows
+  gather_facts: false
   become: true
   become_method: runas
   become_user: admin

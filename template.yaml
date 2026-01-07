@@ -1,0 +1,5 @@
+- hosts: windows
+  tasks:
+    - win_template:
+        src: file.conf.j2
+        dest: c:\foo.conf

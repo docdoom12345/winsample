@@ -6,6 +6,7 @@
         description: Deploy Group
         state: present
       loop: "{{ local_groups }}"
+      notify: Restart machine
 
     - name: Ensure users are created
       loop: "{{ local_users }}"
@@ -14,4 +15,8 @@
         password: "{{ item['password'] }}"
         state: present
         groups: "{{ item['groups'] }}"
-        groups_action: add
+        groups_action: replace
+      
+  handlers:
+    - name: Restart machine
+      ansible.windows.win_reboot:
