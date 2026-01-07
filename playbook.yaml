@@ -16,10 +16,8 @@
       win_file:
         path: "{{ file_path }}"
         state: touch
-      when: not result.stat.exists
+      when: not result['stat']['exists']
     
-      
-
     - setup:
       become: false
 
