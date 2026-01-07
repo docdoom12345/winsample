@@ -13,3 +13,4 @@
         password: "{{ item['password'] }}"
         state: present
         groups: "{{ item['groups'] }}"
+        groups_action: add
