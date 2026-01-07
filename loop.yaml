@@ -1,5 +1,11 @@
 - hosts: windows
   tasks:
+    - name: Create a new group
+      ansible.windows.win_group:
+        name: Users
+        description: Deploy Group
+        state: present
+
     - name: Ensure users are created
       loop: "{{ local_users }}"
       ansible.windows.win_user:
