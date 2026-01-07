@@ -2,9 +2,10 @@
   tasks:
     - name: Create a new group
       ansible.windows.win_group:
-        name: Users
+        name: "{{ item }}"
         description: Deploy Group
         state: present
+      loop: "{{ local_groups }}"
 
     - name: Ensure users are created
       loop: "{{ local_users }}"
